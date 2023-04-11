@@ -1,6 +1,9 @@
 let weightInput = document.getElementById("weight");
 let heightInput = document.getElementById("height");
 let formInput = document.getElementById("calculate");
+let notif = document.getElementById("notif");
+
+weightInput.focus(); // membuat focus input saat pertama kali website direload
 
 // console.log(weightInput);
 // console.log(heightInput);
@@ -28,5 +31,13 @@ formInput.addEventListener("submit", (e) => {
     category = "Unknown";
   }
 
+  // reset form
+  weightInput.value = "";
+  heightInput.value = "";
+
+  weightInput.focus();
+
+  // menyisipkan text ke dalam element HTML
+  notif.innerHTML = `Your BMI is <b>${result.toFixed(1)}</b> whic mean You are <b>${category}</b>`;
 });
 
